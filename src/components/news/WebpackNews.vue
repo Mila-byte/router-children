@@ -4,7 +4,7 @@
       phone
     </header>
     <iframe
-        src="https://webpack.js.org/"
+        src="https://en.wikipedia.org/wiki/Webpack"
         width="100%"
         height="400"></iframe>
   </v-card>
@@ -15,7 +15,3 @@ export default {
 name: "WebpackNews"
 }
 </script>
-
-<style scoped>
-
-</style>

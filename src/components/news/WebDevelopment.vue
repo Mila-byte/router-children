@@ -4,7 +4,7 @@
       phone
     </header>
     <iframe
-        src="https://medium.com/mind-cafe/7-little-things-that-can-tell-you-a-lot-about-someone-7a5f51157c3d"
+        src="https://en.wikipedia.org/wiki/Software_development"
         width="100%"
         height="400"></iframe>
   </v-card>

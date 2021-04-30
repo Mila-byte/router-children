@@ -53,7 +53,7 @@ const routes = [
       {
         path: 'webpack-news',
         name: 'webpack-news',
-        component: () => import(/* webpackChunkName: "webpack-news" */ '@/components/news/WebDevelopment.vue')
+        component: () => import(/* webpackChunkName: "webpack-news" */ '@/components/news/WebpackNews.vue')
       }
     ]
   },

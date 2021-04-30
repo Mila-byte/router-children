@@ -4,7 +4,7 @@
      phone
     </header>
     <iframe
-        src="https://www.youtube.com/watch?v=QXXXSRQd4TI"
+        src="https://en.wikipedia.org/wiki/Smartphone"
         width="100%"
         height="400"></iframe>
   </v-card>

@@ -12,9 +12,9 @@ export default new Vuex.Store({
     messageText: '',
     users: null,
     videos: {
-      Bw6HfM402bM: 'Easter',
-      ex9tML6udCU: 'Table Tennis',
-      Q6X0mViQNqA: 'King Crimson'
+      eOa5hl4lMvc: 'Easter',
+      y82MasaD3OY: 'Table Tennis',
+      FhKJgqxNDD8: 'King Crimson'
     }
   },
 
