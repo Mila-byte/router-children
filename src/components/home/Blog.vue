@@ -1,15 +1,15 @@
 <template>
-  <v-main class="pl-15 pt-4">
+  <v-main>
     <v-list>
       <v-list-item-group color="primary">
         <v-list-item
           class="text-left"
-          v-for="(item, i) in videos"
-          :key="i"
-          @click="routeToVideo(i)"
+          v-for="(item, id) in videos"
+          :key="id"
+          @click="routeToVideo(id)"
         >
           <v-list-item-content>
-            <v-list-item-title @click="routeToVideo(i)">
+            <v-list-item-title @click="routeToVideo(id)">
               {{ item }}
             </v-list-item-title>
           </v-list-item-content>
@@ -21,19 +21,18 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
 export default {
-  name: "Blog",
+  name: 'Blog',
   computed: {
-    ...mapState(["videos"]),
+    ...mapState(['videos'])
   },
   methods: {
     routeToVideo(id) {
-      this.$route.params.id !== id &&
-        this.$router.push({ name: "videos", params: { id } });
-    },
-  },
-};
+      if (this.$route.params.id === id) return
+      this.$router.push({ name: 'videos', params: { id } }).catch(() => console.log('not authorized'))
+    }
+  }
+}
 </script>
-

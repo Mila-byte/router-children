@@ -1,10 +1,10 @@
 <template>
   <v-text-field
-    :label="propName"
-    :placeholder="propName"
     v-model="property"
     outlined
     class="mx-8 my-2"
+    :label="propName"
+    :placeholder="propName"
   />
 </template>
 
@@ -16,10 +16,10 @@ export default {
   props: ['userId', 'propName', 'propValue'],
   computed: {
     property: {
-      get () {
+      get() {
         return this.propValue
       },
-      set (value) {
+      set(value) {
         this.updateUserProp({
           userId: this.userId,
           propName: this.propName,

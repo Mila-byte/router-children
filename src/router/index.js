@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
+import { loginHandler } from '@/helpers'
 
 Vue.use(VueRouter)
+console.log(Vue.prototype)
 
 const routes = [
   {
@@ -28,6 +30,9 @@ const routes = [
           {
             path: ':id',
             name: 'videos',
+            beforeEnter: (to, from, next) => {
+              loginHandler() ? next() : next({ name: 'history' })
+            },
             component: () => import(/* webpackChunkName: "video" */ '@/components/home/blog/Video.vue'),
             props: true
           }
@@ -60,7 +65,15 @@ const routes = [
   {
     path: '/history',
     name: 'history',
-    component: () => import('@/views/History.vue')
+    component: () => import('@/views/History.vue'),
+    children: [
+      {
+        path: ':child',
+        name: 'child',
+        component: () => import(/* webpackChunkName: "Child" */ '@/components/Child.vue'),
+        props: true
+      }
+    ]
   }
 ]
 

@@ -1,10 +1,6 @@
 <template>
   <v-main class="pa-4">
-      <iframe
-          width="100%"
-          height="800"
-          :src="src"
-      ></iframe>
+    <iframe width="100%" height="800" :src="src"></iframe>
   </v-main>
 </template>
 

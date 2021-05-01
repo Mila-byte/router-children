@@ -1,12 +1,15 @@
 <template>
   <v-app>
-    <v-app-bar app absolute color="blue-grey">
+    <v-app-bar dense app absolute color="blue-grey">
       <v-btn
+        class="ma-2"
         v-for="(item, index) in options"
         :key="index"
-        class="ma-2"
         @click="toRouteMenu(item)"
         >{{ item }}
+      </v-btn>
+      <v-btn @click="auth('user')">
+        Login
       </v-btn>
     </v-app-bar>
     <main>
@@ -21,53 +24,55 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapState, mapMutations, mapActions } from 'vuex'
+import { loginHandler } from '@/helpers'
 
 export default {
-  name: "App",
+  name: 'App',
   data: () => ({
-    options: ["home", "history", "news"],
-    selected: undefined,
+    options: ['home', 'history', 'news'],
+    selected: undefined
   }),
 
   computed: {
-    ...mapState(["error", "errorMessage"]),
+    ...mapState(['error', 'errorMessage']),
     opened: {
       get() {
-        return this.error;
+        return this.error
       },
       set(value) {
         this.update({
           error: value,
-          errorMessage: "",
-        });
-      },
-    },
+          errorMessage: ''
+        })
+      }
+    }
   },
 
   watch: {
     selected(val) {
-      this.$router.push({ name: val });
-    },
+      this.$router.push({ name: val })
+    }
   },
 
   methods: {
     ...mapActions({
-      getData: "GET_DATA",
+      getData: 'GET_DATA'
     }),
 
     ...mapMutations({
-      update: "SET_ERROR",
+      update: 'SET_ERROR'
     }),
     toRouteMenu(item) {
-      this.$route.name !== item && this.$router.push({ name: item });
+      this.$route.name !== item && this.$router.push({ name: item })
     },
+    auth: loginHandler
   },
 
   created() {
-    this.getData();
-  },
-};
+    this.getData()
+  }
+}
 </script>
 
 <style>
@@ -77,7 +82,7 @@ export default {
 }
 
 #app {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
